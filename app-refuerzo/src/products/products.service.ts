@@ -33,7 +33,10 @@ export class ProductsService {
   }
 
   update(id: string, updateProductDto: UpdateProductDto) {
-    return `This action updates a #${id} product`;
+    const { id: __, ...properties } = updateProductDto;
+    const existProduct = this.findOne(id);
+    existProduct.updateWith({ ...properties });
+    return existProduct;
   }
 
   remove(id: string) {

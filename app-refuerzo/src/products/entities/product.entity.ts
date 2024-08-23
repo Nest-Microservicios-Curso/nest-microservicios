@@ -10,4 +10,18 @@ export class Product {
     public description: string,
     public price: number,
   ) {}
+
+  updateWith({
+    name,
+    description,
+    price,
+  }: {
+    name?: string;
+    description?: string;
+    price?: number;
+  }) {
+    this.name = name ?? this.name;
+    this.description = description ?? this.description;
+    this.price = price ?? this.price;
+  }
 }
