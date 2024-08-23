@@ -3,7 +3,6 @@ import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 import { Product } from './entities/product.entity';
 import { v4 as UuidV4 } from 'uuid';
-import { ExecutionContextHost } from '@nestjs/core/helpers/execution-context-host';
 
 @Injectable()
 export class ProductsService {
@@ -12,8 +11,6 @@ export class ProductsService {
   create(createProductDto: CreateProductDto) {
     const { name, description, price } = createProductDto;
     const newProduct = new Product(UuidV4(), name, description, price);
-    console.log('newProduct');
-    console.log(newProduct);
 
     this.products.push(newProduct);
 
