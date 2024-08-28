@@ -1,4 +1,5 @@
 import {
+  HttpStatus,
   Injectable,
   Logger,
   NotFoundException,
@@ -45,8 +46,16 @@ export class ProductsService extends PrismaClient implements OnModuleInit {
     const product = await this.product.findFirst({
       where: { id, available: true },
     });
+
     // if (!product) throw new NotFoundException(`Product(id:${id}) not found.`); // !! Es ok para un rest api
-    if (!product) throw new RpcException(`Product(id:${id}) not found.`); // * Así es mejor para un microservicio
+
+    // * Así es mejor para un microservicio
+    if (!product)
+      throw new RpcException({
+        status: HttpStatus.NOT_FOUND,
+        message: `Product(id:${id}) not found.`,
+      });
+
     return product;
   }
 
