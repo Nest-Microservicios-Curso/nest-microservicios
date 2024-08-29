@@ -11,3 +11,6 @@ Para trabajar con este proyecto en modo DEV:
 2. Crear un archivo `.env` basado en `.env.example`
 3. Ejecutar migración de prisma: `npx prisma migrate dev`
 4. Ejecutar la aplicación: `npm run start:dev`
+
+# Postman collection
+Follow the next link: [<img src="https://run.pstmn.io/button.svg" alt="Run In Postman" style="width: 128px; height: 32px;">](https://god.gw.postman.com/run-collection/5685555-29b72e23-420e-4e4e-b596-4d8dffb38dee?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D5685555-29b72e23-420e-4e4e-b596-4d8dffb38dee%26entityType%3Dcollection%26workspaceId%3D7ffa729a-bded-4434-856b-18f973e6273d)
