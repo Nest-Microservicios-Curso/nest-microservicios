@@ -10,25 +10,25 @@ export class ProductsController {
   constructor(private readonly productsService: ProductsService) {}
 
   // @Post()
-  @MessagePattern({ cmd: 'create' })
+  @MessagePattern({ cmd: 'createProduct' })
   create(@Payload() createProductDto: CreateProductDto) {
     return this.productsService.create(createProductDto);
   }
 
   // @Get()
-  @MessagePattern({ cmd: 'getAll' })
+  @MessagePattern({ cmd: 'getAllProducts' })
   findAll(@Payload() paginationDto: PaginationDto) {
     return this.productsService.findAll(paginationDto);
   }
 
   // @Get(':id')
-  @MessagePattern({ cmd: 'getById' })
+  @MessagePattern({ cmd: 'getProductById' })
   findOne(@Payload('id', ParseIntPipe) id: number) {
     return this.productsService.findOne(id);
   }
 
   // @Patch(':id')
-  @MessagePattern({ cmd: 'update' })
+  @MessagePattern({ cmd: 'updateProduct' })
   update(@Payload() updateProductDto: UpdateProductDto) {
     return this.productsService.update(updateProductDto);
   }
